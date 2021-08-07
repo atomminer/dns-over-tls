@@ -1,11 +1,13 @@
+CXX=c++
+
 resolver: resolver.o dns.o
-	gcc -o resolver resolver.o dns.o -lstdc++ -lssl -lcrypto
+	$(CXX) -o resolver resolver.o dns.o -lssl -lcrypto
 
 resolver.o: resolver.cpp 
-	gcc -c resolver.cpp
+	$(CXX) -c resolver.cpp
 
 dns.o: dns.cpp dns.h
-	gcc -c dns.cpp
+	$(CXX) -c dns.cpp
 
 clean:
 	rm -rf ./*.o
